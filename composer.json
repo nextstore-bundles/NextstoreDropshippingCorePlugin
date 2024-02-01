@@ -1,6 +1,7 @@
 {
     "name": "nextstore/sylius-dropshipping-core-plugin",
     "type": "sylius-plugin",
+    "description": "This is internal package, will broke your code",
     "keywords": [
         "sylius",
         "sylius-plugin"
