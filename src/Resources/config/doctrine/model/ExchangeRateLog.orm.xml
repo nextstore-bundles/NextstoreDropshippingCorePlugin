@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--suppress XmlDefaultAttributeValue -->
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+
+    <mapped-superclass name="Nextstore\SyliusDropshippingCorePlugin\Model\ExchangeRateLog"
+        table="nextstore_exchange_rate_log">
+        <id name="id" column="id" type="integer">
+            <generator strategy="AUTO" />
+        </id>
+        <many-to-one field="sourceCurrency"
+            target-entity="Sylius\Component\Currency\Model\CurrencyInterface">
+            <join-column name="source_currency" referenced-column-name="id" nullable="false"
+                on-delete="CASCADE" />
+        </many-to-one>
+        <many-to-one field="targetCurrency"
+            target-entity="Sylius\Component\Currency\Model\CurrencyInterface">
+            <join-column name="target_currency" referenced-column-name="id" nullable="false"
+                on-delete="CASCADE" />
+        </many-to-one>
+
+        <field name="ratio" column="ratio" type="decimal" percision="10" scale="4" nullable="false" />
+        <field name="createdAt" column="created_at" type="datetime" nullable="true" />
+    </mapped-superclass>
+
+</doctrine-mapping>

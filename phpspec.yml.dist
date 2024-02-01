@@ -1,0 +1,4 @@
+suites:
+    main:
+        namespace: Nextstore\SyliusDropshippingCorePlugin
+        psr4_prefix: Nextstore\SyliusDropshippingCorePlugin

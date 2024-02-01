@@ -1,0 +1,4 @@
+nextstore_sylius_dropshipping_core_admin:
+  resource: "@NextstoreSyliusDropshippingCorePlugin/Resources/config/routing/admin.yaml"
+nextstore_sylius_dropshipping_core_api:
+  resource: "@NextstoreSyliusDropshippingCorePlugin/Resources/config/routing/api.yaml"

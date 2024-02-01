@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--suppress XmlDefaultAttributeValue -->
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+
+    <mapped-superclass name="Nextstore\SyliusDropshippingCorePlugin\Model\Config"
+        table="nextstore_config">
+        <id name="id" column="id" type="integer">
+            <generator strategy="AUTO" />
+        </id>
+        <field name="code" column="code" type="string" nullable="false" />
+        <field name="name" column="name" type="string" nullable="true" />
+        <field name="value" column="value" type="string" nullable="false" />
+        <field name="content" column="content" type="string" nullable="true" />
+        <field name="createdAt" column="created_at" type="datetime" nullable="true" />
+        <!-- <field name="udpatedAt" column="updated_at" type="datetime" nullable="true" /> -->
+    </mapped-superclass>
+
+</doctrine-mapping>
+
+

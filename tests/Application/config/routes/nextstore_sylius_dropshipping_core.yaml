@@ -1,0 +1,2 @@
+nextstore_sylius_dropshipping_core:
+    resource: "@NextstoreSyliusDropshippingCorePlugin/Resources/config/routing.yaml"

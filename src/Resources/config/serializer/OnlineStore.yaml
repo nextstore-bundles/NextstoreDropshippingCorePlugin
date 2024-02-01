@@ -1,0 +1,3 @@
+Nextstore\SyliusDropshippingCorePlugin\Model\OnlineStore:
+    exclusion_policy: ALL
+    xml_root_name: online_store

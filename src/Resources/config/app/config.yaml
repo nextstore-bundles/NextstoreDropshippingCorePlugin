@@ -1,0 +1,10 @@
+imports:
+    - "@NextstoreSyliusDropshippingCorePlugin/Resources/config/grid/config.yaml"
+    - "@NextstoreSyliusDropshippingCorePlugin/Resources/config/grid/online_store.yaml"
+
+jms_serializer:
+    metadata:
+        directories:
+            nextstore-sylius-dropshipping-core:
+                namespace_prefix: "Nextstore\\SyliusDropshippingCorePlugin\\Model"
+                path: "@NextstoreSyliusDropshippingCorePlugin/Resources/config/serializer"

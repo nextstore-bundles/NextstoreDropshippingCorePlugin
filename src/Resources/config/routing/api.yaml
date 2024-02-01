@@ -1,0 +1,5 @@
+nextstore_sylius_dropshipping_core_api_exchange_rate_by_codes:
+  path: /api/v2/shop/get-exchange-rates-by-codes
+  methods: ["GET"]
+  defaults:
+    _controller: nextstore_sylius_dropshipping_core.controller.get_exchange_rate_action

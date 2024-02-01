@@ -1,0 +1,3 @@
+Nextstore\SyliusDropshippingCorePlugin\Model\Config:
+    exclusion_policy: ALL
+    xml_root_name: config

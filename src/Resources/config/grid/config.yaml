@@ -1,0 +1,68 @@
+sylius_grid:
+    grids:
+        nextstore_sylius_dropshipping_core_admin_config:
+            driver:
+                name: doctrine/orm
+                options:
+                    class: "%nextstore_sylius_dropshipping_core.model.config.class%"
+            fields:
+                name:
+                    type: string
+                    label: sylius.ui.name
+                code:
+                    type: string
+                    label: sylius.ui.code
+                    sortable: ~
+                value:
+                    type: string
+                    label: sylius.ui.value
+                createdAt:
+                    type: datetime
+                    label: sylius.ui.created_at
+                    path: createdAt
+                    sortable: createdAt
+                    options:
+                        format: d-m-Y H:i:s
+                updatedAt:
+                    type: datetime
+                    label: sylius.ui.updated_at
+                    path: updatedAt
+                    sortable: updatedAøt
+                    options:
+                        format: d-m-Y H:i:s
+            filters:
+                createdAt:
+                    type: date
+                    label: sylius.ui.created_at
+                    options:
+                        field: createdAt
+                        inclusive_to: true
+                updatedAt:
+                    type: date
+                    label: sylius.ui.created_at
+                    options:
+                        field: updatedAt
+                        inclusive_to: true
+                code:
+                    type: string
+                    label: sylius.ui.code
+                    options:
+                        field: code
+                name:
+                    type: string
+                    label: sylius.ui.name
+                    options:
+                        field: name
+                value:
+                    type: string
+                    label: sylius.ui.value
+                    options:
+                        field: value
+            actions:
+                main:
+                    create:
+                        type: create
+                item:
+                    edit:
+                        type: update
+                        label: sylius.ui.edit

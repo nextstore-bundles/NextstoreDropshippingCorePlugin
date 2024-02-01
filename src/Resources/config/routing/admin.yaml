@@ -1,0 +1,29 @@
+nextstore_sylius_dropshipping_core_admin_config:
+    resource: |
+        alias: nextstore_sylius_dropshipping_core.config
+        section: admin
+        templates: "@SyliusAdmin\\Crud"
+        redirect: update
+        grid: nextstore_sylius_dropshipping_core_admin_config
+        vars:
+            all:
+                subheader: nextstore_sylius_dropshipping_core.config.subheader
+            index:
+                icon: 'code'
+    type: sylius.resource
+    prefix: /admin
+
+nextstore_sylius_dropshipping_core_admin_online_store:
+    resource: |
+        alias: nextstore_sylius_dropshipping_core.online_store
+        section: admin
+        templates: "@SyliusAdmin\\Crud"
+        redirect: update
+        grid: nextstore_sylius_dropshipping_core_admin_online_store
+        vars:
+            all:
+                subheader: nextstore_sylius_dropshipping_core.online_store.subheader
+            index:
+                icon: 'desktop'
+    type: sylius.resource
+    prefix: /admin
