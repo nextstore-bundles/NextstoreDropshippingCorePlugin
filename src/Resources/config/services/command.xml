@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+    <services>
+        <service id="Nextstore\SyliusDropshippingCorePlugin\Command\UpdateExchangeRateCommand">
+            <argument type="service" id="doctrine.orm.entity_manager" />
+            <argument type="service" id="nextstore_sylius_dropshipping_core.custom_factory.exchange_rate_log" />
+            <argument type="service" id="nextstore_sylius_dropshipping_core.factory.exchange_rate" />
+            <argument type="service" id="sylius.repository.exchange_rate" />
+            <argument type="service" id="parameter_bag" />
+            <tag name="console.command" command="nextstore:update-exchange-rate" />
+        </service>
+    </services>
+</container>
