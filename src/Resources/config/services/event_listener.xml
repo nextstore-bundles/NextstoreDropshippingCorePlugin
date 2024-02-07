@@ -18,7 +18,7 @@
                  class="Nextstore\SyliusDropshippingCorePlugin\EventListener\ImageUploadListener"
                  public="false">
             <argument type="service" id="sylius.image_uploader" />
-            <tag name="kernel.event_listener" event="nextstore_sylius_dropshipping_core.online_store.pre_create" method="uploadImage"/>
+            <tag name="kernel.event_listener" event="nextstore_sylius_dropshipping_core.online_store_image.pre_create" method="uploadImage"/>
         </service>
 
     </services>
