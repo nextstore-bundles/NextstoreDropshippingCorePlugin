@@ -6,12 +6,12 @@ namespace Nextstore\SyliusDropshippingCorePlugin\Command;
 
 use Nextstore\SyliusDropshippingCorePlugin\Factory\Currency\ExchangeRateFactory;
 use Nextstore\SyliusDropshippingCorePlugin\Factory\Currency\ExchangeRateLogFactory;
-use Sylius\Component\Currency\Model\Currency;
-use Sylius\Component\Currency\Model\ExchangeRate;
+use Sylius\Component\Currency\Model\CurrencyInterface;
 use Nextstore\SyliusDropshippingCorePlugin\Model\Config;
 use Doctrine\ORM\EntityManagerInterface;
 use GuzzleHttp\Client;
 use Nextstore\SyliusDropshippingCorePlugin\Repository\Currency\ExchangeRateRepository;
+use Sylius\Component\Currency\Model\ExchangeRateInterface;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
@@ -56,16 +56,16 @@ class UpdateExchangeRateCommand extends Command
         $key = $this->parameterBag->get('currency_api_key');
         $url = self::$serviceUrl .  '?key=' . $key . '&base=' . $sourceCurrencyCode . '&foreign=' . $targetCurrencyCode;
 
-        $sourceCurrency = $this->entityManager->getRepository(Currency::class)->findOneBy(['code' => $sourceCurrencyCode]);
-        $targetCurrency = $this->entityManager->getRepository(Currency::class)->findOneBy(['code' => $targetCurrencyCode]);
+        $sourceCurrency = $this->entityManager->getRepository(CurrencyInterface::class)->findOneBy(['code' => $sourceCurrencyCode]);
+        $targetCurrency = $this->entityManager->getRepository(CurrencyInterface::class)->findOneBy(['code' => $targetCurrencyCode]);
         Assert::isInstanceOf(
             $targetCurrency,
-            Currency::class,
+            CurrencyInterface::class,
             'Couldn\t find currency with code ' . $targetCurrencyCode . ' in your Currency list. Create one or choose one you have'
         );
         Assert::isInstanceOf(
             $sourceCurrency,
-            Currency::class,
+            CurrencyInterface::class,
             'Couldn\t find currency with code ' . $sourceCurrencyCode . ' in your Currency list. Create one or choose one you have'
         );
 
@@ -86,7 +86,7 @@ class UpdateExchangeRateCommand extends Command
 
         $rate = (float) $xrates['foreign']['amount'] + (float) $addedRateFee;
 
-        if (!$exchangeRate instanceof ExchangeRate) {
+        if (!$exchangeRate instanceof ExchangeRateInterface) {
             $exchangeRate = $this->exchangeRateFactory->createWithTarget($xrates['foreign']['code'], $xrates['base']['code'], $rate);
             $this->entityManager->persist($exchangeRate);
         } else {
