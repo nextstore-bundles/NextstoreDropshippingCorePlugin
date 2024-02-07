@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+        <parameter key="nextstore_sylius_dropshipping_core.form.type.config.validation_groups"
+            type="collection">
+            <parameter>nextstore_sylius_dropshipping_core</parameter>
+        </parameter>
+        <parameter key="nextstore_sylius_dropshipping_core.form.type.online_store.validation_groups"
+            type="collection">
+            <parameter>nextstore_sylius_dropshipping_core</parameter>
+        </parameter>
+        <parameter
+            key="nextstore_sylius_dropshipping_core.form.type.online_store_image.validation_groups"
+            type="collection">
+            <parameter>nextstore_sylius_dropshipping_core</parameter>
+        </parameter>
+    </parameters>
+
+    <services>
+
+        <service id="nextstore_sylius_dropshipping_core.form.type.config"
+            class="Nextstore\SyliusDropshippingCorePlugin\Form\Type\ConfigType">
+            <argument>%nextstore_sylius_dropshipping_core.model.config.class%</argument>
+            <argument>%nextstore_sylius_dropshipping_core.form.type.config.validation_groups%</argument>
+
+            <tag name="form.type" />
+        </service>
+
+        <service id="nextstore_sylius_dropshipping_core.form.type.online_store"
+            class="Nextstore\SyliusDropshippingCorePlugin\Form\Type\OnlineStoreType">
+            <argument>%nextstore_sylius_dropshipping_core.model.online_store.class%</argument>
+            <argument>%nextstore_sylius_dropshipping_core.form.type.online_store.validation_groups%</argument>
+
+            <tag name="form.type" />
+        </service>
+
+        <service id="nextstore_sylius_dropshipping_core.form.type.online_store_image"
+            class="Nextstore\SyliusDropshippingCorePlugin\Form\Type\OnlineStoreImageType">
+            <argument>%nextstore_sylius_dropshipping_core.model.online_store_image.class%</argument>
+            <argument>%nextstore_sylius_dropshipping_core.form.type.online_store_image.validation_groups%</argument>
+            <tag name="form.type" />
+        </service>
+    </services>
+
+</container>

@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace Nextstore\SyliusDropshippingCorePlugin\Model;
 
 use Sylius\Component\Resource\Model\ResourceInterface;
-use Sylius\Component\Addressing\Model\CountryInterface;
+use Sylius\Component\Addressing\Model\Country;
 
-interface OnlineStoreInterface extends ResourceInterface
+interface OnlineStoreInterface extends ResourceInterface, ImagesAwareInterface
 {
     public function getWebUrl(): string;
 
@@ -17,10 +17,6 @@ interface OnlineStoreInterface extends ResourceInterface
 
     public function setName(string $name): void;
 
-    public function getLogo(): ?string;
-
-    public function setLogo(?string $logo): void;
-
     public function getDescription(): string;
 
     public function setDescription(string $description): void;
@@ -29,9 +25,9 @@ interface OnlineStoreInterface extends ResourceInterface
 
     public function setCreatedAt(\DateTime $createdAt): void;
 
-    public function getCountry(): ?CountryInterface;
+    public function getCountry(): ?Country;
 
-    public function setCountry(?CountryInterface $country): void;
+    public function setCountry(?Country $country): void;
 
     public function getPosition(): ?int;
 

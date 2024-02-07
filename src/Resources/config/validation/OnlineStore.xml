@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<constraint-mapping xmlns="http://symfony.com/schema/dic/constraint-mapping"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/constraint-mapping http://symfony.com/schema/dic/services/constraint-mapping-1.0.xsd">
+
+    <class name="Nextstore\SyliusDropshippingCorePlugin\Model\OnlineStore">
+
+        <property name="name">
+            <constraint name="NotBlank">
+                <option name="message">
+                nextstore_sylius_dropshipping_core.online_store.name.not_blank</option>
+                <option
+                    name="groups">nextstore_sylius_dropshipping_core</option>
+            </constraint>
+            <constraint name="Length">
+                <option name="min">2</option>
+                <option name="max">255</option>
+                <option
+                    name="minMessage">
+                nextstore_sylius_dropshipping_core.online_store.name.min_length</option>
+                <option
+                    name="maxMessage">
+                nextstore_sylius_dropshipping_core.online_store.name.max_length</option>
+                <option
+                    name="groups">nextstore_sylius_dropshipping_core</option>
+            </constraint>
+        </property>
+
+        <property name="images">
+            <constraint name="Valid" />
+        </property>
+    </class>
+
+</constraint-mapping>

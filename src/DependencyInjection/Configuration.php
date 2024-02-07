@@ -4,11 +4,16 @@ declare(strict_types=1);
 
 namespace Nextstore\SyliusDropshippingCorePlugin\DependencyInjection;
 
+use Nextstore\SyliusDropshippingCorePlugin\Form\Type\ConfigType;
+use Nextstore\SyliusDropshippingCorePlugin\Form\Type\OnlineStoreImageType;
+use Nextstore\SyliusDropshippingCorePlugin\Form\Type\OnlineStoreType;
 use Nextstore\SyliusDropshippingCorePlugin\Model\Config;
 use Nextstore\SyliusDropshippingCorePlugin\Model\ConfigInterface;
 use Nextstore\SyliusDropshippingCorePlugin\Model\ExchangeRateLog;
 use Nextstore\SyliusDropshippingCorePlugin\Model\ExchangeRateLogInterface;
 use Nextstore\SyliusDropshippingCorePlugin\Model\OnlineStore;
+use Nextstore\SyliusDropshippingCorePlugin\Model\OnlineStoreImage;
+use Nextstore\SyliusDropshippingCorePlugin\Model\OnlineStoreImageInterface;
 use Nextstore\SyliusDropshippingCorePlugin\Model\OnlineStoreInterface;
 use Nextstore\SyliusDropshippingCorePlugin\Factory\Currency\ExchangeRateLogFactory;
 use Nextstore\SyliusDropshippingCorePlugin\Repository\Config\ConfigRepository;
@@ -62,6 +67,7 @@ final class Configuration implements ConfigurationInterface
                                         ->scalarNode('controller')->defaultValue(ResourceController::class)->cannotBeEmpty()->end()
                                         ->scalarNode('repository')->defaultValue(ConfigRepository::class)->cannotBeEmpty()->end()
                                         ->scalarNode('factory')->defaultValue(Factory::class)->end()
+                                        ->scalarNode('form')->defaultValue(ConfigType::class)->end()
                                     ->end()
                                 ->end()
                             ->end()
@@ -77,6 +83,23 @@ final class Configuration implements ConfigurationInterface
                                         ->scalarNode('interface')->defaultValue(OnlineStoreInterface::class)->cannotBeEmpty()->end()
                                         ->scalarNode('controller')->defaultValue(ResourceController::class)->cannotBeEmpty()->end()
                                         ->scalarNode('factory')->defaultValue(Factory::class)->end()
+                                        ->scalarNode('form')->defaultValue(OnlineStoreType::class)->end()
+                                    ->end()
+                                ->end()
+                            ->end()
+                        ->end()
+                        ->arrayNode('online_store_image')
+                            ->addDefaultsIfNotSet()
+                            ->children()
+                                ->variableNode('options')->end()
+                                ->arrayNode('classes')
+                                    ->addDefaultsIfNotSet()
+                                    ->children()
+                                        ->scalarNode('model')->defaultValue(OnlineStoreImage::class)->cannotBeEmpty()->end()
+                                        ->scalarNode('interface')->defaultValue(OnlineStoreImageInterface::class)->cannotBeEmpty()->end()
+                                        ->scalarNode('controller')->defaultValue(ResourceController::class)->cannotBeEmpty()->end()
+                                        ->scalarNode('factory')->defaultValue(Factory::class)->end()
+                                        ->scalarNode('form')->defaultValue(OnlineStoreImageType::class)->end()
                                     ->end()
                                 ->end()
                             ->end()
