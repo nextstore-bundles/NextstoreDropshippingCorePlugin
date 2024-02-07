@@ -5,14 +5,12 @@
     xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <services>
-        <service id="nextstore_sylius_dropshipping_core.custom_factory.exchange_rate_log"
+        <service
+            id="nextstore_sylius_dropshipping_core.custom_factory.exchange_rate_log"
             class="Nextstore\SyliusDropshippingCorePlugin\Factory\Currency\ExchangeRateLogFactory"
             decorates="nextstore_sylius_dropshipping_core.factory.exchange_rate_log"
-            decoration-priority="256"
-            public="false"
         >
-            <argument type="service"
-                id="nextstore_sylius_dropshipping_core.custom_factory.exchange_rate_log.inner" />
+            <argument type="service" id="nextstore_sylius_dropshipping_core.custom_factory.exchange_rate_log.inner" />
             <argument type="service" id="doctrine.orm.entity_manager" />
         </service>
         <service id="nextstore_sylius_dropshipping_core.factory.exchange_rate"
@@ -21,8 +19,7 @@
             decoration-priority="256"
             public="false"
         >
-            <argument type="service"
-                id="nextstore_sylius_dropshipping_core.factory.exchange_rate.inner" />
+            <argument type="service" id="nextstore_sylius_dropshipping_core.factory.exchange_rate.inner" />
             <argument type="service" id="doctrine.orm.entity_manager" />
         </service>
     </services>

@@ -1,10 +1,16 @@
 imports:
-    - "@NextstoreSyliusDropshippingCorePlugin/Resources/config/grid/config.yaml"
-    - "@NextstoreSyliusDropshippingCorePlugin/Resources/config/grid/online_store.yaml"
+  - "@NextstoreSyliusDropshippingCorePlugin/Resources/config/grid/config.yaml"
+  - "@NextstoreSyliusDropshippingCorePlugin/Resources/config/grid/online_store.yaml"
 
 jms_serializer:
-    metadata:
-        directories:
-            nextstore-sylius-dropshipping-core:
-                namespace_prefix: "Nextstore\\SyliusDropshippingCorePlugin\\Model"
-                path: "@NextstoreSyliusDropshippingCorePlugin/Resources/config/serializer"
+  metadata:
+    directories:
+      nextstore-sylius-dropshipping-core:
+        namespace_prefix: "Nextstore\\SyliusDropshippingCorePlugin\\Model"
+        path: "@NextstoreSyliusDropshippingCorePlugin/Resources/config/serializer"
+
+sylius_currency:
+  resources:
+    exchange_rate:
+      classes:
+        repository: Nextstore\SyliusDropshippingCorePlugin\Repository\Currency\ExchangeRateRepository

@@ -23,11 +23,11 @@ class ExchangeRateFactory implements FactoryInterface
         return $this->decoratedFactory->createNew();
     }
 
-    public function createWithTarget(string $code, float $ratio)
+    public function createWithTarget(string $targetCode, string $code, float $ratio)
     {
         $rate = $this->decoratedFactory->createNew();
 
-        $target = $this->entityManager->getRepository(Currency::class)->findOneBy(['code' => 'MNT']);
+        $target = $this->entityManager->getRepository(Currency::class)->findOneBy(['code' => $targetCode]);
         $source = $this->entityManager->getRepository(Currency::class)->findOneBy(['code' => $code]);
 
         if (!$target instanceof Currency) {
