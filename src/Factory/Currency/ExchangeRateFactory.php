@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Nextstore\SyliusDropshippingCorePlugin\Factory\Currency;
 
 use Doctrine\ORM\EntityManagerInterface;
-use Sylius\Component\Currency\Model\Currency;
+use Sylius\Component\Currency\Model\CurrencyInterface;
 use Sylius\Component\Currency\Context\CurrencyNotFoundException;
 use Sylius\Component\Resource\Factory\FactoryInterface;
 
@@ -27,13 +27,13 @@ class ExchangeRateFactory implements FactoryInterface
     {
         $rate = $this->decoratedFactory->createNew();
 
-        $target = $this->entityManager->getRepository(Currency::class)->findOneBy(['code' => $targetCode]);
-        $source = $this->entityManager->getRepository(Currency::class)->findOneBy(['code' => $code]);
+        $target = $this->entityManager->getRepository(CurrencyInterface::class)->findOneBy(['code' => $targetCode]);
+        $source = $this->entityManager->getRepository(CurrencyInterface::class)->findOneBy(['code' => $code]);
 
-        if (!$target instanceof Currency) {
-            throw new CurrencyNotFoundException('MNT target Currency not found');
+        if (!$target instanceof CurrencyInterface) {
+            throw new CurrencyNotFoundException($targetCode . ' target Currency not found');
         }
-        if (!$source instanceof Currency) {
+        if (!$source instanceof CurrencyInterface) {
             throw new CurrencyNotFoundException($code . ' source Currency not found');
         }
 
