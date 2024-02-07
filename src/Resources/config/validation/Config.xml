@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<constraint-mapping xmlns="http://symfony.com/schema/dic/constraint-mapping"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/constraint-mapping http://symfony.com/schema/dic/services/constraint-mapping-1.0.xsd">
+
+    <class name="Nextstore\SyliusDropshippingCorePlugin\Model\Config">
+
+        <property name="code">
+            <constraint name="NotBlank">
+                <option name="message">nextstore_sylius_dropshipping_core.config.code.not_blank</option>
+                <option
+                    name="groups">nextstore_sylius_dropshipping_core</option>
+            </constraint>
+            <constraint name="Length">
+                <option name="max">255</option>
+                <option name="maxMessage">
+                nextstore_sylius_dropshipping_core.config.code.max_length</option>
+                <option
+                    name="groups">nextstore_sylius_dropshipping_core</option>
+            </constraint>
+            <constraint name="Regex">
+                <option name="message">nextstore_sylius_dropshipping_core.config.code.regex</option>
+                <option
+                    name="pattern">/^[\w-]*$/</option>
+                <option name="groups">
+                nextstore_sylius_dropshipping_core</option>
+            </constraint>
+        </property>
+
+        <property name="name">
+            <constraint name="NotBlank">
+                <option name="message"> nextstore_sylius_dropshipping_core.config.name.not_blank</option>
+                <option
+                    name="groups">nextstore_sylius_dropshipping_core</option>
+            </constraint>
+            <constraint name="Length">
+                <option name="min">2</option>
+                <option name="max">255</option>
+                <option
+                    name="minMessage"> nextstore_sylius_dropshipping_core.config.name.min_length</option>
+                <option
+                    name="maxMessage"> nextstore_sylius_dropshipping_core.config.name.max_length</option>
+                <option
+                    name="groups">nextstore_sylius_dropshipping_core</option>
+            </constraint>
+        </property>
+    </class>
+
+</constraint-mapping>

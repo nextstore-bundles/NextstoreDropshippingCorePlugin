@@ -11,7 +11,7 @@
             <generator strategy="AUTO" />
         </id>
         <many-to-one field="country"
-            target-entity="Sylius\Component\Addressing\Model\CountryInterface">
+            target-entity="Sylius\Component\Addressing\Model\Country">
             <join-column name="country_id" referenced-column-name="id" nullable="false"
                 on-delete="CASCADE" />
         </many-to-one>
@@ -20,9 +20,7 @@
         <field name="webUrl" column="web_url" type="string" nullable="false" />
         <field name="description" column="description" type="string" nullable="true" />
         <field name="position" column="position" type="integer" nullable="true" />
-        <field name="logo" column="logo" type="string" nullable="true" />
         <field name="createdAt" column="created_at" type="datetime" nullable="true" />
     </mapped-superclass>
 
 </doctrine-mapping>
-
