@@ -16,6 +16,18 @@
                 on-delete="CASCADE" />
         </many-to-one>
 
+        <one-to-many
+            field="images"
+            target-entity="Nextstore\SyliusDropshippingCorePlugin\Model\OnlineStoreImageInterface"
+            mapped-by="owner"
+            orphan-removal="true"
+        >
+            <cascade>
+                <cascade-all/>
+            </cascade>
+        </one-to-many>
+
+
         <field name="name" column="name" type="string" nullable="false" />
         <field name="webUrl" column="web_url" type="string" nullable="false" />
         <field name="description" column="description" type="string" nullable="true" />

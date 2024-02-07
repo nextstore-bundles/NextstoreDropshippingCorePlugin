@@ -1,56 +1,56 @@
 sylius_grid:
-    grids:
-        nextstore_sylius_dropshipping_core_admin_online_store:
-            driver:
-                name: doctrine/orm
-                options:
-                    class: "%nextstore_sylius_dropshipping_core.model.online_store.class%"
-            fields:
-                logo:
-                    type: twig
-                    label: sylius.ui.image
-                    path: logo
-                    options:
-                        template: "@NextstoreSyliusDropshippingCorePlugin/Admin/Store/Grid/_logo.html.twig"
-                position:
-                    type: string
-                    label: sylius.ui.position
-                name:
-                    type: string
-                    label: sylius.ui.name
-                webUrl:
-                    type: string
-                    label: nextstore_sylius_dropshipping_core.ui.web_url
-                    sortable: ~
-                createdAt:
-                    type: datetime
-                    label: sylius.ui.created_at
-                    path: createdAt
-                    sortable: createdAt
-                    options:
-                        format: d-m-Y H:i:s
-            filters:
-                createdAt:
-                    type: date
-                    label: sylius.ui.created_at
-                    options:
-                        field: createdAt
-                        inclusive_to: true
-                webUrl:
-                    type: string
-                    label: nextstore_sylius_dropshipping_core.ui.web_url
-                    options:
-                        field: webUrl
-                name:
-                    type: string
-                    label: sylius.ui.name
-                    options:
-                        field: name
-            actions:
-                main:
-                    create:
-                        type: create
-                item:
-                    edit:
-                        type: update
-                        label: sylius.ui.edit
+  grids:
+    nextstore_sylius_dropshipping_core_admin_online_store:
+      driver:
+        name: doctrine/orm
+        options:
+          class: "%nextstore_sylius_dropshipping_core.model.online_store.class%"
+      fields:
+        image:
+          type: twig
+          label: sylius.ui.image
+          path: .
+          options:
+            template: "@NextstoreSyliusDropshippingCorePlugin/Admin/Store/Grid/_logo.html.twig"
+        position:
+          type: string
+          label: sylius.ui.position
+        name:
+          type: string
+          label: sylius.ui.name
+        webUrl:
+          type: string
+          label: nextstore_sylius_dropshipping_core.ui.web_url
+          sortable: ~
+        createdAt:
+          type: datetime
+          label: sylius.ui.created_at
+          path: createdAt
+          sortable: createdAt
+          options:
+            format: d-m-Y H:i:s
+      filters:
+        createdAt:
+          type: date
+          label: sylius.ui.created_at
+          options:
+            field: createdAt
+            inclusive_to: true
+        webUrl:
+          type: string
+          label: nextstore_sylius_dropshipping_core.ui.web_url
+          options:
+            field: webUrl
+        name:
+          type: string
+          label: sylius.ui.name
+          options:
+            field: name
+      actions:
+        main:
+          create:
+            type: create
+        item:
+          edit:
+            type: update
+            label: sylius.ui.edit
