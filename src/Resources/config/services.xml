@@ -6,10 +6,11 @@
     <imports>
         <import resource="services/event_listener.xml" />
         <import resource="services/controller.xml" />
+        <import resource="services/factory.xml" />
         <import resource="services/command.xml" />
+        <import resource="services/service.xml" />
         <import resource="services/form.xml" />
         <import resource="services/menu.xml" />
-        <import resource="services/factory.xml" />
     </imports>
     <parameters>
         <parameter

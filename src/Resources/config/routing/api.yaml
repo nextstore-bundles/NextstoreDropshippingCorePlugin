@@ -3,3 +3,9 @@ nextstore_sylius_dropshipping_core_api_exchange_rate_by_codes:
   methods: ["GET"]
   defaults:
     _controller: nextstore_sylius_dropshipping_core.controller.get_exchange_rate_action
+
+nextstore_sylius_dropshipping_core_api_order_add_to_cart_manually:
+  path: /api/v2/shop/orders/{token}/manually
+  methods: ["POST"]
+  defaults:
+    _controller: nextstore_sylius_dropshipping_core.controller.add_to_cart_manually_action

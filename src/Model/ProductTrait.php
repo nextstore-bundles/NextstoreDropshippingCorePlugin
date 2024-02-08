@@ -23,6 +23,13 @@ trait ProductTrait
      */
     private $webUrl;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(type="string", nullable=false, name="product_type", options={"default": "simple"})
+     */
+    private $productType = ProductInterface::TYPE_SIMPLE;
+
     public function getExternalVendorId(): ?string
     {
         return $this->externalVendorId;
@@ -51,5 +58,15 @@ trait ProductTrait
     public function setExternalProductId(?string $externalProductId): void
     {
         $this->externalProductId = $externalProductId;
+    }
+
+    public function getProductType(): string
+    {
+        return $this->productType;
+    }
+
+    public function setProductType(string $productType): void
+    {
+        $this->productType = $productType;
     }
 }
