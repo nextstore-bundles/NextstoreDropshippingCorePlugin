@@ -6,8 +6,8 @@ namespace Nextstore\SyliusDropshippingCorePlugin\Model;
 
 trait ProductTrait
 {
-    /** @ORM\Colum(type="string", nullable=true) */
-    private $externalVendorId;
+    /** @ORM\Column(type="string", nullable=true, name="external_vendor_id") */
+    private ?string $externalVendorId;
 
     public function getExternalVendorId(): ?string
     {
