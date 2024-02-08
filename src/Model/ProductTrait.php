@@ -9,6 +9,20 @@ trait ProductTrait
     /** @ORM\Column(type="string", nullable=true, name="external_vendor_id") */
     private ?string $externalVendorId;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(type="string", nullable=true, name="external_product_id")
+     */
+    private $externalProductId;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(type="text", nullable=true, name="web_url")
+     */
+    private $webUrl;
+
     public function getExternalVendorId(): ?string
     {
         return $this->externalVendorId;
@@ -17,5 +31,25 @@ trait ProductTrait
     public function setExternalVendorId(?string $externalVendorId): void
     {
         $this->externalVendorId = $externalVendorId;
+    }
+
+    public function getWebUrl(): ?string
+    {
+        return $this->webUrl;
+    }
+
+    public function setWebUrl(string $webUrl): void
+    {
+        $this->webUrl = $webUrl;
+    }
+
+    public function getExternalProductId(): ?string
+    {
+        return $this->externalProductId;
+    }
+
+    public function setExternalProductId(?string $externalProductId): void
+    {
+        $this->externalProductId = $externalProductId;
     }
 }
