@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <service id="nextstore_sylius_dropshipping_core.validator.order_item"
+            class="Nextstore\SyliusDropshippingCorePlugin\Validator\ValidatorOrderItem" public="true">
+            <argument type="service" id="doctrine.orm.entity_manager" />
+        </service>
+
+        <service id="nextstore_sylius_dropshipping_core.service.order_item"
+            class="Nextstore\SyliusDropshippingCorePlugin\Service\OrderItemService" public="true">
+            <argument type="service" id="doctrine.orm.entity_manager" />
+            <argument type="service" id="nextstore_sylius_dropshipping_core.validator.order_item" />
+            <argument type="service" id="nextstore_sylius_dropshipping_core.factory.product" />
+            <argument type="service" id="nextstore_sylius_dropshipping_core.factory.order_item" />
+        </service>
+    </services>
+</container>

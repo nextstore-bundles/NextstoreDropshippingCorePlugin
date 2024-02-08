@@ -15,5 +15,17 @@
             </call>
             <tag name="controller.service_arguments" />
         </service>
+
+        <service id="nextstore_sylius_dropshipping_core.controller.add_to_cart_manually_action"
+            class="Nextstore\SyliusDropshippingCorePlugin\Controller\Api\Action\AddToCartManuallyAction"
+        >
+            <argument type="service" id="nextstore_sylius_dropshipping_core.service.order_item" />
+            <argument type="service" id="doctrine.orm.entity_manager" />
+            <argument type="service" id="serializer" />
+            <call method="setContainer">
+                <argument type="service" id="service_container" />
+            </call>
+            <tag name="controller.service_arguments" />
+        </service>
     </services>
 </container>

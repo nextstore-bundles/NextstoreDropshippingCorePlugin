@@ -22,5 +22,26 @@
             <argument type="service" id="nextstore_sylius_dropshipping_core.factory.exchange_rate.inner" />
             <argument type="service" id="doctrine.orm.entity_manager" />
         </service>
+        <service id="nextstore_sylius_dropshipping_core.factory.product"
+            class="Nextstore\SyliusDropshippingCorePlugin\Factory\Product\ProductFactory"
+            decorates="sylius.factory.product"
+            public="false"
+        >
+            <argument type="service" id="nextstore_sylius_dropshipping_core.factory.product.inner" />
+            <argument type="service" id="sylius.context.channel" />
+            <argument type="service" id="parameter_bag" />
+            <argument type="service" id="doctrine.orm.entity_manager" />
+        </service>
+
+        <service id="nextstore_sylius_dropshipping_core.factory.order_item"
+            class="Nextstore\SyliusDropshippingCorePlugin\Factory\Order\OrderItemFactory"
+            decorates="sylius.factory.order_item"
+            public="false"
+        >
+            <argument type="service" id="nextstore_sylius_dropshipping_core.factory.order_item.inner" />
+            <argument type="service" id="doctrine.orm.entity_manager" />
+            <argument type="service" id="sylius.context.channel" />
+        </service>
+
     </services>
 </container>

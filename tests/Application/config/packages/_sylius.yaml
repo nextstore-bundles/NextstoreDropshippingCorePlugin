@@ -28,3 +28,9 @@ sylius_product:
     product:
       classes:
         model: Tests\Nextstore\SyliusDropshippingCorePlugin\Application\src\Entity\Product\Product
+
+sylius_order:
+  resources:
+    order_item:
+      classes:
+        model: Tests\Nextstore\SyliusDropshippingCorePlugin\Application\src\Entity\Order\OrderItem
