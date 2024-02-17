@@ -30,6 +30,14 @@ trait ProductTrait
      */
     private $productType = ProductInterface::TYPE_SIMPLE;
 
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(type="text", nullable=true, name="image_url")
+     */
+    private $imageUrl;
+
     public function getExternalVendorId(): ?string
     {
         return $this->externalVendorId;
@@ -68,5 +76,15 @@ trait ProductTrait
     public function setProductType(string $productType): void
     {
         $this->productType = $productType;
+    }
+
+    public function getImageUrl(): ?string
+    {
+        return $this->imageUrl;
+    }
+
+    public function setImageUrl(string $imageUrl): void
+    {
+        $this->imageUrl = $imageUrl;
     }
 }
