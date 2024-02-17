@@ -27,4 +27,8 @@ interface ProductInterface extends BaseProductInterface
     public function getProductType(): string;
 
     public function setProductType(string $productType): void;
+
+    public function getImageUrl(): ?string;
+
+    public function setImageUrl(string $imageUrl): void;
 }
