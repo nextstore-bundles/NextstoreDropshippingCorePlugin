@@ -8,12 +8,11 @@ use Nextstore\SyliusDropshippingCorePlugin\Model\OrderItemInterface as Nextstore
 use Doctrine\ORM\EntityManagerInterface;
 use Sylius\Component\Channel\Context\ChannelContextInterface;
 use Sylius\Component\Core\Factory\CartItemFactoryInterface;
-use Sylius\Component\Core\Model\Order;
-use Sylius\Component\Core\Model\OrderInterface;
+use Sylius\Component\Order\Model\OrderInterface;
 use Sylius\Component\Core\Model\OrderItemInterface;
-use Sylius\Component\Core\Model\OrderItemUnit;
 use Sylius\Component\Core\Model\ProductInterface;
 use Sylius\Component\Core\Model\ProductVariant;
+use Sylius\Component\Order\Factory\OrderItemUnitFactoryInterface;
 
 class OrderItemFactory implements CartItemFactoryInterface
 {
@@ -21,6 +20,7 @@ class OrderItemFactory implements CartItemFactoryInterface
         private CartItemFactoryInterface $decoratedFactory,
         private EntityManagerInterface $em,
         private ChannelContextInterface $channelContext,
+        private OrderItemUnitFactoryInterface $orderItemUnitFactory,
     ) {
     }
 
@@ -39,13 +39,13 @@ class OrderItemFactory implements CartItemFactoryInterface
         return $this->decoratedFactory->createForCart($order);
     }
 
-    public function createManually(ProductInterface $product, Order $order, ?array $array): Order
+    public function createManually(ProductInterface $product, OrderInterface $order, ?array $array): OrderInterface
     {
         /** @var NextstoreOrderItemInterface $orderItem */
-        $orderItem = $this->createForProduct($product);
+        $orderItem = $this->createForCart($order);
         /** @var ProductVariant $variant */
         $variant = $product->getVariants()[0];
-        $channel = $this->channelContext->getChannel();
+        $orderItem->setVariant($variant);
 
         array_key_exists('color', $array) && $orderItem->setColor($array['color']);
         array_key_exists('size', $array) && $orderItem->setSize($array['size']);
@@ -53,18 +53,14 @@ class OrderItemFactory implements CartItemFactoryInterface
         $orderItem->setVariant($variant);
         $orderItem->setVariantName($variant->getName());
         $orderItem->setProductName($variant->getProduct()->getName());
-        $orderItem->setUnitPrice($variant->getChannelPricingForChannel($channel)->getPrice());
-        $orderItem->setOriginalUnitPrice($variant->getChannelPricingForChannel($channel)->getOriginalPrice());
+        $orderItem->setUnitPrice((int) $array['price'] * 100);
+        $orderItem->setOriginalUnitPrice((int) $array['price'] * 100);
 
         for ($i = 0; (int) $array['quantity'] > $i; ++$i) {
-            $unit = new OrderItemUnit($orderItem);
-            $orderItem->addUnit($unit);
+            $unit = $this->orderItemUnitFactory->createForItem($orderItem);
 
             $this->em->persist($unit);
         }
-
-        $order->addItem($orderItem);
-
         $this->em->persist($orderItem);
         $this->em->flush();
 

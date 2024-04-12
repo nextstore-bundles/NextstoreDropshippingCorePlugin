@@ -41,6 +41,7 @@
             <argument type="service" id="nextstore_sylius_dropshipping_core.factory.order_item.inner" />
             <argument type="service" id="doctrine.orm.entity_manager" />
             <argument type="service" id="sylius.context.channel" />
+            <argument type="service" id="sylius.factory.order_item_unit" />
         </service>
 
     </services>
