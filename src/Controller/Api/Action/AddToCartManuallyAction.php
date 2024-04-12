@@ -6,9 +6,9 @@ namespace Nextstore\SyliusDropshippingCorePlugin\Controller\Api\Action;
 
 use Nextstore\SyliusDropshippingCorePlugin\Exception\FailedToAddToCartException;
 use Nextstore\SyliusDropshippingCorePlugin\Service\OrderItemService;
-use Doctrine\ORM\EntityManagerInterface;
 use Exception;
-use Sylius\Component\Core\Model\Order;
+use Sylius\Component\Order\Model\OrderInterface;
+use Sylius\Component\Core\Repository\OrderRepositoryInterface;
 use Sylius\Component\Order\Context\CartNotFoundException;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -19,7 +19,7 @@ class AddToCartManuallyAction extends AbstractController
 {
     public function __construct(
         private OrderItemService $orderItemService,
-        private EntityManagerInterface $em,
+        private OrderRepositoryInterface $orderRepository,
         private NormalizerInterface $normalizer,
     ) {
     }
@@ -33,8 +33,8 @@ class AddToCartManuallyAction extends AbstractController
         }
 
         $token = $request->attributes->get('token');
-        $cart = $this->em->getRepository(Order::class)->findOneBy(['tokenValue' => $token, 'state' => Order::STATE_CART]);
-        if (!$cart instanceof Order) {
+        $cart = $this->orderRepository->findCartByTokenValue($token);
+        if (!$cart instanceof OrderInterface) {
             throw new CartNotFoundException();
         }
 

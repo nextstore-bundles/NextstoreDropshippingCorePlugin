@@ -10,13 +10,9 @@ use Nextstore\SyliusDropshippingCorePlugin\Factory\Product\ProductFactory;
 use Nextstore\SyliusDropshippingCorePlugin\Validator\ValidatorOrderItem;
 use Doctrine\ORM\EntityManagerInterface;
 use Sylius\Component\Core\Model\Order;
-use Sylius\Component\Resource\Factory\FactoryInterface as SyliusFactoryInterface;
 
 class OrderItemService
 {
-    /**
-     * @param SyliusFactoryInterface<object> $productFactory
-     */
     public function __construct(
         private EntityManagerInterface $entityManager,
         private ValidatorOrderItem $validatorOrderItem,

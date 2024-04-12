@@ -8,6 +8,7 @@ use Nextstore\SyliusDropshippingCorePlugin\Model\ProductInterface as NextstorePr
 use Doctrine\ORM\EntityManagerInterface;
 use Sylius\Component\Channel\Context\ChannelContextInterface;
 use Sylius\Component\Core\Model\ChannelPricing;
+use Sylius\Component\Core\Model\ChannelPricingInterface;
 use Sylius\Component\Core\Model\ProductVariant;
 use Sylius\Component\Core\Model\Taxon;
 use Sylius\Component\Product\Factory\ProductFactoryInterface;
@@ -57,17 +58,16 @@ class ProductFactory implements ProductFactoryInterface
         $variant->setCode($product->getCode());
         $variant->setName($array['productName']);
         $variant->setTracked(false);
-        $cp = $this->createChannelPricing($variant, (int) $array['price'], (int) $array['price']);
-        $variant->addChannelPricing($cp);
+        $this->createChannelPricing($variant, (int) $array['price'], (int) $array['price']);
 
-        $this->entityManager->persist($variant);
         $this->entityManager->persist($product);
+        $this->entityManager->persist($variant);
         $this->entityManager->flush();
 
         return $product;
     }
 
-    public function createChannelPricing(ProductVariant $variant, int $price): ChannelPricing
+    public function createChannelPricing(ProductVariant $variant, int $price): ChannelPricingInterface
     {
         $channel = $this->channelContext->getChannel();
 
