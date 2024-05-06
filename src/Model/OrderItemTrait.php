@@ -27,6 +27,9 @@ trait OrderItemTrait
     /** @ORM\Column(type="text", nullable=true, name="web_url") */
     private $webUrl;
 
+    /** @ORM\Column(type="string", nullable=true, name="promotion_id") */
+    private $promotionId;
+
     public function getState(): ?string
     {
         return $this->state;
@@ -95,5 +98,15 @@ trait OrderItemTrait
     public function setWebUrl(string $webUrl): void
     {
         $this->webUrl = $webUrl;
+    }
+
+    public function getPromotionId(): ?string
+    {
+        return $this->promotionId;
+    }
+
+    public function setPromotion(string $promotionId): void
+    {
+        $this->promotionId = $promotionId;
     }
 }
