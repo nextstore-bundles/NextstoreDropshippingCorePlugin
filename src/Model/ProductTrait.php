@@ -38,6 +38,13 @@ trait ProductTrait
      */
     private $imageUrl;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(type="string", nullable=true, name="provider_type")
+     */
+    private $providerType;
+
     public function getExternalVendorId(): ?string
     {
         return $this->externalVendorId;
@@ -86,5 +93,15 @@ trait ProductTrait
     public function setImageUrl(string $imageUrl): void
     {
         $this->imageUrl = $imageUrl;
+    }
+
+    public function getProviderType(): ?string
+    {
+        return $this->providerType;
+    }
+
+    public function setProviderType(string $providerType): void
+    {
+        $this->providerType = $providerType;
     }
 }

@@ -37,4 +37,8 @@ interface OrderItemInterface extends BaseOrderItemInterface
     public function getWebUrl(): ?string;
 
     public function setWebUrl(string $webUrl): void;
+
+    public function getPromotionId(): ?string;
+
+    public function setPromotion(string $promotionId): void;
 }
