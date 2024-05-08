@@ -12,7 +12,7 @@ trait OrderTrait
 
     public function getOtOrderId(): ?string
     {
-        return $this->otOrderId();
+        return $this->otOrderId;
     }
 
     public function setOtOrderId(?string $otOrderId): void
