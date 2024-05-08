@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Nextstore\SyliusDropshippingCorePlugin\Model;
 
-use Sylius\Component\Core\Model\OrderItemInterface as BaseOrderItemInterface;
+use Sylius\Component\Core\Model\OrderInterface as BaseOrderInterface;
 
-interface OrderInterface extends BaseOrderItemInterface
+interface OrderInterface extends BaseOrderInterface
 {
     public function getOtOrderId(): ?string;
 
