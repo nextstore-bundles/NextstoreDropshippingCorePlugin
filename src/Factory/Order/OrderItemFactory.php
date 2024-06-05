@@ -50,6 +50,7 @@ class OrderItemFactory implements CartItemFactoryInterface
         array_key_exists('color', $array) && $orderItem->setColor($array['color']);
         array_key_exists('size', $array) && $orderItem->setSize($array['size']);
         array_key_exists('description', $array) && $orderItem->setDescription($array['description']);
+        array_key_exists('externalProductCode', $array) && $orderItem->setExternalProductCode($array['externalProductCode']);
         $orderItem->setVariant($variant);
         $orderItem->setVariantName($variant->getName());
         $orderItem->setProductName($variant->getProduct()->getName());
