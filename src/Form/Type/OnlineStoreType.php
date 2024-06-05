@@ -21,6 +21,9 @@ class OnlineStoreType extends AbstractResourceType
             ->add('name', TextType::class, [
                 'label' => 'sylius.ui.name',
             ])
+            ->add('code', TextType::class, [
+                'label' => 'sylius.ui.code',
+            ])
             ->add('webUrl', UrlType::class, [
                 'label' => 'nextstore_sylius_dropshipping_core.ui.web_url',
             ])

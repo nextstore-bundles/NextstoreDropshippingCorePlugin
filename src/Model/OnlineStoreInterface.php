@@ -32,4 +32,8 @@ interface OnlineStoreInterface extends ResourceInterface, ImagesAwareInterface
     public function getPosition(): ?int;
 
     public function setPosition(?int $position): void;
+
+    public function getCode(): string;
+
+    public function setCode(string $code): void;
 }

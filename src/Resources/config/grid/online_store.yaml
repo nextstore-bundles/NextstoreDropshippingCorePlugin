@@ -15,6 +15,9 @@ sylius_grid:
                 position:
                     type: string
                     label: sylius.ui.position
+                code:
+                    type: string
+                    label: sylius.ui.code
                 name:
                     type: string
                     label: sylius.ui.name
@@ -41,6 +44,11 @@ sylius_grid:
                     label: nextstore_sylius_dropshipping_core.ui.web_url
                     options:
                         field: webUrl
+                code:
+                    type: string
+                    label: sylius.ui.code
+                    options:
+                        field: code
                 name:
                     type: string
                     label: sylius.ui.name

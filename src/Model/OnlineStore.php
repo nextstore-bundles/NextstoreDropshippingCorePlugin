@@ -16,6 +16,8 @@ class OnlineStore implements OnlineStoreInterface
 
     private string $name;
 
+    private string $code;
+
     private ?string $description;
 
     /** @var \DateTime  */
@@ -44,6 +46,16 @@ class OnlineStore implements OnlineStoreInterface
     public function setWebUrl(string $webUrl): void
     {
         $this->webUrl = $webUrl;
+    }
+
+    public function getCode(): string
+    {
+        return $this->code;
+    }
+
+    public function setCode(string $code): void
+    {
+        $this->code = $code;
     }
 
     public function getName(): string
