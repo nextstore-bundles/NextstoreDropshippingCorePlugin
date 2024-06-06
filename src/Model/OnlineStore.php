@@ -2,8 +2,6 @@
 
 namespace Nextstore\SyliusDropshippingCorePlugin\Model;
 
-use Sylius\Component\Addressing\Model\CountryInterface;
-
 class OnlineStore implements OnlineStoreInterface
 {
     use ImagesAwareTrait {
@@ -23,7 +21,7 @@ class OnlineStore implements OnlineStoreInterface
     /** @var \DateTime  */
     private $createdAt;
 
-    private ?CountryInterface $country;
+    private ?string $countryCode;
 
     private ?int $position;
 
@@ -88,14 +86,14 @@ class OnlineStore implements OnlineStoreInterface
         $this->createdAt = $createdAt;
     }
 
-    public function getCountry(): ?CountryInterface
+    public function getCountryCode(): ?string
     {
-        return $this->country;
+        return $this->countryCode;
     }
 
-    public function setCountry(?CountryInterface $country): void
+    public function setCountryCode(?string $countryCode): void
     {
-        $this->country = $country;
+        $this->countryCode = $countryCode;
     }
 
     public function getPosition(): ?int
