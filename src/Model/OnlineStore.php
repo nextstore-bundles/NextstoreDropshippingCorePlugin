@@ -2,7 +2,7 @@
 
 namespace Nextstore\SyliusDropshippingCorePlugin\Model;
 
-use Sylius\Component\Addressing\Model\Country;
+use Sylius\Component\Addressing\Model\CountryInterface;
 
 class OnlineStore implements OnlineStoreInterface
 {
@@ -23,7 +23,7 @@ class OnlineStore implements OnlineStoreInterface
     /** @var \DateTime  */
     private $createdAt;
 
-    private ?Country $country;
+    private ?CountryInterface $country;
 
     private ?int $position;
 
@@ -88,12 +88,12 @@ class OnlineStore implements OnlineStoreInterface
         $this->createdAt = $createdAt;
     }
 
-    public function getCountry(): ?Country
+    public function getCountry(): ?CountryInterface
     {
         return $this->country;
     }
 
-    public function setCountry(?Country $country): void
+    public function setCountry(?CountryInterface $country): void
     {
         $this->country = $country;
     }
