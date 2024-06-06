@@ -4,9 +4,10 @@ declare(strict_types=1);
 
 namespace Nextstore\SyliusDropshippingCorePlugin\Form\Type;
 
-use Sylius\Component\Addressing\Model\CountryInterface;
+use Sylius\Bundle\AddressingBundle\Form\Type\CountryCodeChoiceType;
 use Sylius\Bundle\ResourceBundle\Form\Type\AbstractResourceType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Sylius\Component\Addressing\Model\Country;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -33,8 +34,7 @@ class OnlineStoreType extends AbstractResourceType
             ->add('position', NumberType::class, [
                 'label' => 'sylius.ui.position',
             ])
-            ->add('country', EntityType::class, [
-                'class' => CountryInterface::class,
+            ->add('countryCode', CountryCodeChoiceType::class, [
                 'required' => false,
                 'label' => 'sylius.ui.country'
             ])

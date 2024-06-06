@@ -25,9 +25,9 @@ interface OnlineStoreInterface extends ResourceInterface, ImagesAwareInterface
 
     public function setCreatedAt(\DateTime $createdAt): void;
 
-    public function getCountry(): ?CountryInterface;
+    public function getCountryCode(): ?string;
 
-    public function setCountry(?CountryInterface $country): void;
+    public function setCountryCode(?string $countryCode): void;
 
     public function getPosition(): ?int;
 
