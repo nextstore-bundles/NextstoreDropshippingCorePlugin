@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Nextstore\SyliusDropshippingCorePlugin\Form\Type;
 
-use Sylius\Component\Addressing\Model\Country;
+use Sylius\Component\Addressing\Model\CountryInterface;
 use Sylius\Bundle\ResourceBundle\Form\Type\AbstractResourceType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
@@ -34,7 +34,7 @@ class OnlineStoreType extends AbstractResourceType
                 'label' => 'sylius.ui.position',
             ])
             ->add('country', EntityType::class, [
-                'class' => Country::class,
+                'class' => CountryInterface::class,
                 'required' => false,
                 'label' => 'sylius.ui.country'
             ])
