@@ -15,17 +15,18 @@
             <collectionOperation name="shop_get">
                 <attribute name="method">GET</attribute>
                 <attribute name="path">/shop/online-stores</attribute>
+                <attribute name="filters">
+                    <attribute>online_store.order_filter</attribute>
+                </attribute>
                 <attribute name="pagination">
                     <attribute name="pagination_enabled">true</attribute>
                     <attribute
                         name="pagination_items_per_page">10</attribute>
                 </attribute>
                 <attribute name="normalization_context">
-                    <attribute name="groups">shop:online-stores:list</attribute>
+                    <attribute name="groups">shop:online-store:list</attribute>
                 </attribute>
             </collectionOperation>
         </collectionOperations>
     </resource>
 </resources>
-
-gg

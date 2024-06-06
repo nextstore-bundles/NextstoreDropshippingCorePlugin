@@ -7,7 +7,7 @@
 >
     <class name="Nextstore\SyliusDropshippingCorePlugin\Model\OnlineStore">
         <attribute name="id">
-            <group>shop:parcel:read</group>
+            <group>shop:online-store:list</group>
         </attribute>
         <attribute name="name">
             <group>shop:online-store:list</group>
@@ -25,6 +25,9 @@
             <group>shop:online-store:list</group>
         </attribute>
         <attribute name="position">
+            <group>shop:online-store:list</group>
+        </attribute>
+        <attribute name="images">
             <group>shop:online-store:list</group>
         </attribute>
     </class>
