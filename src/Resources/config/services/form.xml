@@ -21,7 +21,6 @@
     </parameters>
 
     <services>
-
         <service id="nextstore_sylius_dropshipping_core.form.type.config"
             class="Nextstore\SyliusDropshippingCorePlugin\Form\Type\ConfigType">
             <argument>%nextstore_sylius_dropshipping_core.model.config.class%</argument>
@@ -43,6 +42,12 @@
             <argument>%nextstore_sylius_dropshipping_core.model.online_store_image.class%</argument>
             <argument>%nextstore_sylius_dropshipping_core.form.type.online_store_image.validation_groups%</argument>
             <tag name="form.type" />
+        </service>
+
+        <service id="nextstore_sylius_dropshipping_core.form.extension.type.product"
+            class="Nextstore\SyliusDropshippingCorePlugin\Form\Extension\NextstoreDropshippingCoreProductTypeExtension">
+            <tag name="form.type_extension"
+                extended_type="Sylius\Bundle\ProductBundle\Form\Type\ProductType"/>
         </service>
     </services>
 

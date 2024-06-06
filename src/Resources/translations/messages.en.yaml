@@ -1,15 +1,17 @@
 nextstore_sylius_dropshipping_core:
-  ui:
-    config: "Config"
-    configs: "Configs"
-    new_config: "New config"
-    edit_config: "Edit config"
-    online_store: "Online store"
-    online_stores: "Online stores"
-    new_online_store: "New online store"
-    edit_online_store: "Edit online store"
-    web_url: "Web url"
-  config:
-    subheader: "Manage configs"
-  online_store:
-    subheader: "Manage online stores"
+    ui:
+        config: "Config"
+        configs: "Configs"
+        new_config: "New config"
+        edit_config: "Edit config"
+        online_store: "Online store"
+        online_stores: "Online stores"
+        new_online_store: "New online store"
+        edit_online_store: "Edit online store"
+        web_url: "Web url"
+        external_product_id: "External product id"
+        external: "External"
+    config:
+        subheader: "Manage configs"
+    online_store:
+        subheader: "Manage online stores"
