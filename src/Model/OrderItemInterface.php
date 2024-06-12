@@ -9,6 +9,8 @@ use Sylius\Component\Core\Model\OrderItemInterface as BaseOrderItemInterface;
 interface OrderItemInterface extends BaseOrderItemInterface
 {
     public const STATE_NEW = 'new';
+    public const TAOBAO = 'Taobao';
+    public const ALIBABA1688 = 'Alibaba1688';
 
     public function getState(): ?string;
 
