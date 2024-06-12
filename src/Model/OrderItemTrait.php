@@ -31,7 +31,7 @@ trait OrderItemTrait
     private $promotionId;
 
     /** @ORM\Column(type="string", nullable=true, name="provider_type") */
-    private $providerType = OrderItemInterface::TAOBAO;
+    private $providerType;
 
     public function getState(): ?string
     {
