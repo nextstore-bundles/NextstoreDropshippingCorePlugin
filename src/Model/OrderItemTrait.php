@@ -30,7 +30,7 @@ trait OrderItemTrait
     /** @ORM\Column(type="string", nullable=true, name="promotion_id") */
     private $promotionId;
 
-    /** @ORM\Column(type="string", nullable=true, name="provider_type", options={"default": OrderItemInterface::TAOBAO}) */
+    /** @ORM\Column(type="string", nullable=true, name="provider_type") */
     private $providerType = OrderItemInterface::TAOBAO;
 
     public function getState(): ?string
