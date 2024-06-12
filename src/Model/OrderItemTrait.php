@@ -30,6 +30,9 @@ trait OrderItemTrait
     /** @ORM\Column(type="string", nullable=true, name="promotion_id") */
     private $promotionId;
 
+    /** @ORM\Column(type="string", nullable=true, name="provider_type", options={"default": OrderItemInterface::TAOBAO}) */
+    private $providerType = OrderItemInterface::TAOBAO;
+
     public function getState(): ?string
     {
         return $this->state;
@@ -108,5 +111,15 @@ trait OrderItemTrait
     public function setPromotion(string $promotionId): void
     {
         $this->promotionId = $promotionId;
+    }
+
+    public function getProviderType(): ?string
+    {
+        return $this->providerType;
+    }
+
+    public function setProviderType(string $providerType): void
+    {
+        $this->providerType = $providerType;
     }
 }
