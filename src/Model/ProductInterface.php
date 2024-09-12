@@ -9,8 +9,9 @@ use Sylius\Component\Core\Model\ProductInterface as BaseProductInterface;
 interface ProductInterface extends BaseProductInterface
 {
     public const TYPE_SIMPLE = 'simple';
-
     public const TYPE_MANUAl = 'manual';
+    public const ORDER_TYPE_READY = 'ready';
+    public const ORDER_TYPE_ORDER = 'order';
 
     public function getExternalVendorId(): ?string;
 
@@ -35,4 +36,8 @@ interface ProductInterface extends BaseProductInterface
     public function getProviderType(): ?string;
 
     public function setProviderType(string $providerType): void;
+
+    public function getOrderType(): ?string;
+
+    public function setOrderType(string $orderType): void;
 }

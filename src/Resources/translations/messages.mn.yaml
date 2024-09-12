@@ -11,6 +11,9 @@ nextstore_sylius_dropshipping_core:
         web_url: "Вэб хаягийн линк"
         external_product_id: "Бүтээгдэхүүний дугаар"
         external: "External"
+        product_order_type: "Бүтээгдэхүүний захиалгын төрөл"
+        order_type_ready: "Бэлэн бараа"
+        order_type_order: "Захиалгын бараа"
     config:
         subheader: "Тохиргоог удирдах"
     online_store:
