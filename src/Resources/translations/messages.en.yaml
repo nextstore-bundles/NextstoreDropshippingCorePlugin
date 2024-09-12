@@ -11,6 +11,9 @@ nextstore_sylius_dropshipping_core:
         web_url: "Web url"
         external_product_id: "External product id"
         external: "External"
+        product_order_type: "Product order type"
+        order_type_ready: "Ready"
+        order_type_order: "Order"
     config:
         subheader: "Manage configs"
     online_store:

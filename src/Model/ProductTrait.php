@@ -45,6 +45,13 @@ trait ProductTrait
      */
     private $providerType;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(type="string", nullable=true, name="order_type")
+     */
+    private $orderType;
+
     public function getExternalVendorId(): ?string
     {
         return $this->externalVendorId;
@@ -101,6 +108,16 @@ trait ProductTrait
     }
 
     public function setProviderType(string $providerType): void
+    {
+        $this->providerType = $providerType;
+    }
+
+    public function getOrderType(): ?string
+    {
+        return $this->providerType;
+    }
+
+    public function setOrderType(string $providerType): void
     {
         $this->providerType = $providerType;
     }

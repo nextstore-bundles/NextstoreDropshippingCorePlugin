@@ -4,8 +4,10 @@ declare(strict_types=1);
 
 namespace Nextstore\SyliusDropshippingCorePlugin\Form\Extension;
 
+use Nextstore\SyliusDropshippingCorePlugin\Model\ProductInterface;
 use Sylius\Bundle\ProductBundle\Form\Type\ProductType;
 use Symfony\Component\Form\AbstractTypeExtension;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 
@@ -19,6 +21,13 @@ final class NextstoreDropshippingCoreProductTypeExtension extends AbstractTypeEx
             ])
             ->add('externalProductId', TextType::class, [
                 'label' => 'nextstore_sylius_dropshipping_core.ui.external_product_id',
+            ])
+            ->add('orderType', ChoiceType::class, [
+                'label' => 'nextstore_sylius_dropshipping_core.ui.product_order_type',
+                'choices' => [
+                    'nextstore_sylius_dropshipping_core.ui.order_type_ready' => ProductInterface::ORDER_TYPE_READY,
+                    'nextstore_sylius_dropshipping_core.ui.order_type_order' => ProductInterface::ORDER_TYPE_ORDER,
+                ]
             ])
         ;
 
