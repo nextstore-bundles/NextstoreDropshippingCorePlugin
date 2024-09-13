@@ -114,11 +114,11 @@ trait ProductTrait
 
     public function getOrderType(): ?string
     {
-        return $this->providerType;
+        return $this->orderType;
     }
 
-    public function setOrderType(string $providerType): void
+    public function setOrderType(string $orderType): void
     {
-        $this->providerType = $providerType;
+        $this->orderType = $orderType;
     }
 }
