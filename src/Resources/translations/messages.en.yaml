@@ -14,6 +14,8 @@ nextstore_sylius_dropshipping_core:
         product_order_type: "Product order type"
         order_type_ready: "Ready"
         order_type_order: "Order"
+        price_ot: "Price"
+        original_price_ot: "Original Price"
     config:
         subheader: "Manage configs"
     online_store:

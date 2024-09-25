@@ -6,6 +6,7 @@ namespace Nextstore\SyliusDropshippingCorePlugin\Form\Extension;
 
 use Nextstore\SyliusDropshippingCorePlugin\Model\ProductInterface;
 use Sylius\Bundle\ProductBundle\Form\Type\ProductType;
+use Sylius\Bundle\MoneyBundle\Form\Type\MoneyType;
 use Symfony\Component\Form\AbstractTypeExtension;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -28,6 +29,16 @@ final class NextstoreDropshippingCoreProductTypeExtension extends AbstractTypeEx
                     'nextstore_sylius_dropshipping_core.ui.order_type_ready' => ProductInterface::ORDER_TYPE_READY,
                     'nextstore_sylius_dropshipping_core.ui.order_type_order' => ProductInterface::ORDER_TYPE_ORDER,
                 ]
+            ])
+            ->add('priceOt', MoneyType::class, [
+                'label' => 'nextstore_sylius_dropshipping_core.ui.price_ot',
+                'required' => false,
+                'currency' => $options['channel']->getBaseCurrency()->getCode(),
+            ])
+            ->add('originalPriceOt', MoneyType::class, [
+                'label' => 'nextstore_sylius_dropshipping_core.ui.original_price_ot',
+                'required' => false,
+                'currency' => $options['channel']->getBaseCurrency()->getCode(),
             ])
         ;
 
