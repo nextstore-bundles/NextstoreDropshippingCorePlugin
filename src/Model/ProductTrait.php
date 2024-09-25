@@ -52,6 +52,20 @@ trait ProductTrait
      */
     private $orderType;
 
+    /**
+     * @var int
+     *
+     * @ORM\Column(type="integer", nullable=true, name="price_ot")
+     */
+    private $priceOt;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(type="integer", nullable=true, name="original_price_ot")
+     */
+    private $originalPriceOt;
+
     public function getExternalVendorId(): ?string
     {
         return $this->externalVendorId;
@@ -120,5 +134,25 @@ trait ProductTrait
     public function setOrderType(string $orderType): void
     {
         $this->orderType = $orderType;
+    }
+
+    public function getPriceOt(): ?int
+    {
+        return $this->priceOt;
+    }
+
+    public function setPriceOt(?int $priceOt): void
+    {
+        $this->priceOt = $priceOt;
+    }
+
+    public function getOriginalPriceOt(): ?int
+    {
+        return $this->originalPriceOt;
+    }
+
+    public function setOriginalPriceOt(?int $originalPriceOt): void
+    {
+        $this->originalPriceOt = $originalPriceOt;
     }
 }
