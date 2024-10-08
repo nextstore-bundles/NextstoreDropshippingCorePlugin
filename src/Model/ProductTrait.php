@@ -66,6 +66,13 @@ trait ProductTrait
      */
     private $originalPriceOt;
 
+    /**
+     * @var bool
+     *
+     * @ORM\Column(type="boolean", nullable=true, name="tmall", options={"default": 0})
+     */
+    private $tmall = false;
+
     public function getExternalVendorId(): ?string
     {
         return $this->externalVendorId;
@@ -154,5 +161,15 @@ trait ProductTrait
     public function setOriginalPriceOt(?int $originalPriceOt): void
     {
         $this->originalPriceOt = $originalPriceOt;
+    }
+
+    public function getTmall(): ?bool
+    {
+        return $this->tmall;
+    }
+
+    public function setTmall(?bool $tmall): void
+    {
+        $this->tmall = (bool) $tmall;
     }
 }
