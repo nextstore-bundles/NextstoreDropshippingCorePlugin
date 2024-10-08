@@ -37,6 +37,7 @@ final class NextstoreDropshippingCoreProductTypeExtension extends AbstractTypeEx
                 'label' => 'nextstore_sylius_dropshipping_core.ui.original_price_ot',
                 'required' => false,
             ])
+            ->add('tmall')
         ;
 
     }
