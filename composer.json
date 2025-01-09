@@ -11,7 +11,7 @@
         "php": "^8.1",
         "loevgaard/sylius-brand-plugin": "^2.2",
         "sylius/mailer-bundle": "^1.8 || ^2.0@beta",
-        "sylius/sylius": "v1.13",
+        "sylius/sylius": "^v1.13",
         "symfony/webpack-encore-bundle": "^1.15"
     },
     "require-dev": {
